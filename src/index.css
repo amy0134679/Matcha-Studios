@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --color-matcha: #3d7a4a;
+  --color-matcha-light: #5ca86a;
+  --color-matcha-pale: #d4ead8;
+  --color-matcha-bg: #eef7ee;
+  --color-cream: #fffdf7;
+  --color-dark: #1a2e1d;
+  --color-mid: #5c7a60;
+  --font-display: 'Unbounded', sans-serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+}
+
+* {
+  scrollbar-width: none;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-cream);
+  color: var(--color-dark);
+  -webkit-font-smoothing: antialiased;
+}

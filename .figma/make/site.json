@@ -1,0 +1,10 @@
+{
+  "description": "Connect with like-minded individuals through a user-friendly platform that fosters meaningful conversations and builds authentic relationships.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
