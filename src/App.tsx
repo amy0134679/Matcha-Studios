@@ -4,8 +4,8 @@ import logo from "./imports/logo.png";
 
 const MENU_TABS = [
   {
-    id: "classics",
-    label: "The Classics",
+    id: "matchas",
+    label: "Matcha",
     items: [
       {
         name: "Iced Original Matcha",
@@ -28,8 +28,32 @@ const MENU_TABS = [
     ],
   },
   {
-    id: "rotating",
-    label: "Rotating Flavours",
+    id: "coffees",
+    label: "Coffeee",
+    items: [
+      {
+        name: "Vietnamese Iced Coffee",
+        desc: "Rich coffee over oat milk.",
+        img: "https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?w=700&h=700&fit=crop&auto=format",
+        tag: "bestseller",
+      },
+      {
+        name: "Iced Mango Matcha",
+        desc: "The classic matcha with a sweet and tangy mango syrup",
+        img: "https://images.unsplash.com/photo-1777915836959-5182cb4fabba?w=700&h=700&fit=crop&auto=format",
+        tag: null,
+      },
+      {
+        name: "Sparkling Matcha",
+        desc: "Matcha concentrate over fizzy soda.",
+        img: "https://images.unsplash.com/photo-1723960676396-c8d17f502f21?w=700&h=700&fit=crop&auto=format",
+        tag: "new",
+      },
+    ],
+  },
+  {
+    id: "teas",
+    label: "Teas",
     items: [
       {
         name: "Vietnamese Iced Coffee",
@@ -86,7 +110,7 @@ const CATERING_OPTIONS = [
 ]
 
 export default function App() {
-  const [tab, setTab] = useState("classics")
+  const [tab, setTab] = useState("matchas")
 
   const activeItems = MENU_TABS.find((m) => m.id === tab)?.items ?? []
 
