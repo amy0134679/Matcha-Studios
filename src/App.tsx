@@ -1,4 +1,6 @@
 import { useState } from "react"
+import logo from "./imports/logo.png";
+
 
 const MENU_TABS = [
   {
@@ -102,21 +104,15 @@ export default function App() {
           backgroundColor: "var(--color-matcha)",
           position: "sticky",
           top: 0,
-          zIndex: 40,
+          zIndex: 30,
         }}
       >
-        <div className="flex items-center justify-between px-6 py-4 max-w-5xl mx-auto">
-          <span
-            style={{
-              fontFamily: "var(--font-display)",
-              fontWeight: 700,
-              fontSize: "1.05rem",
-              color: "white",
-              letterSpacing: "-0.02em",
-            }}
-          >
-            matcha studios
-          </span>
+          <div className="flex items-center justify-between px-4 py-3 max-w-5xl mx-auto">
+              <img
+                src={logo}
+                alt="Matcha Studios"
+                className="h-14 w-auto object-contain"
+              />
           <div className="hidden sm:flex gap-8 items-center">
             {[
               { label: "Menu", href: "#menu" },
@@ -413,7 +409,7 @@ export default function App() {
               className="text-sm leading-relaxed"
               style={{ color: "var(--color-mid)" }}
             >
-              We've poured more than 1,000 cups across Durham and Toronto. Every
+              We've poured more than 3,000 cups across Durham and Toronto. Every
               one is still hand-whisked with ceremonial grade matcha.
             </p>
           </div>
@@ -447,7 +443,7 @@ export default function App() {
                   lineHeight: 1,
                 }}
               >
-                1k+
+                3k+
               </p>
               <p
                 className="text-xs mt-0.5"
@@ -486,7 +482,7 @@ export default function App() {
           style={{ color: "var(--color-mid)" }}
         >
           We don't do online ordering, but we do come to you. Book us for a
-          market pop-up, a wedding, celebration, or any event that needs a sweet
+          market pop-up, a wedding, celebration, or any event that could use a sweet
           treat.
         </p>
 
