@@ -103,7 +103,6 @@ const MENU_TABS = [
         img: "https://images.unsplash.com/photo-1777915836959-5182cb4fabba?w=700&h=700&fit=crop&auto=format",
         tag: null,
       },
-
     ],
   },
 ]
@@ -313,7 +312,7 @@ export default function App() {
       </div>
 
       {/* Menu */}
-      <section id="menu" className="max-w-5xl mx-auto px-6 py-20">
+      <section id="menu" className="max-w-7xl mx-auto px-7 py-20">
         <div className="flex items-center justify-between mb-10">
           <h2
             style={{
@@ -351,7 +350,7 @@ export default function App() {
           </div>
         </div>
 
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-4 gap-4">
           {activeItems.map((item) => (
             <div
               key={item.name}
@@ -359,7 +358,7 @@ export default function App() {
               style={{
                 backgroundColor: "white",
                 borderRadius: "16px",
-                border: "1.5px solid var(--color-matcha-pale)",
+                border: "2px solid var(--color-matcha-pale)",
               }}
             >
               <div
