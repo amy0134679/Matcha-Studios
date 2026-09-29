@@ -5,7 +5,7 @@ import logo from "./imports/logo.png";
 const MENU_TABS = [
   {
     id: "matchas",
-    label: "Matcha",
+    label: "Matchas",
     items: [
       {
         name: "Original Matcha",
@@ -59,7 +59,7 @@ const MENU_TABS = [
   },
   {
     id: "coffees",
-    label: "Coffee",
+    label: "Coffees",
     items: [
       {
         name: "Iced Coffee",
