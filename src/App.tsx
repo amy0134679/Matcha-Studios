@@ -297,11 +297,12 @@ export default function App() {
         {[
           { icon: "📍", label: "Based in Durham and Toronto" },
           { icon: "🍃", label: "Each Drink made Fresh to order" },
-          { icon: "🗾", label: "Ceremonial grade, straight from Japan" },
+          { icon: "🗾", label: "Ceremonial grade, imported from Japan" },
+          { icon: "🍁", label: "Canadian Owned Business" },
         ].map((s) => (
           <div
             key={s.label}
-            className="flex items-center gap-3 px-8 py-4 flex-1"
+            className="flex items-center justify-center gap-3 px-8 py-4 flex-1"
           >
             <span>{s.icon}</span>
             <p className="text-xs" style={{ color: "rgba(255,255,255,0.6)" }}>
