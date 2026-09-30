@@ -201,32 +201,34 @@ export default function App() {
         >
           <div className="pb-16">
             <div
-              className="inline-block mb-6 px-3 py-1 text-xs font-medium tracking-wide"
+              className="inline-block mb-6 px-4 py-1 text-xs font-medium tracking-wide"
               style={{
                 backgroundColor: "var(--color-matcha-light)",
                 color: "white",
                 borderRadius: "100px",
               }}
             >
-              Toronto & Durham pop-up matcha booth
+              Pop-up matcha booth
             </div>
             <h1
-              className="leading-[0.92] mb-5"
+              className="leading-[0.92] mb-4 whitespace-nowrap"
               style={{
                 fontFamily: "var(--font-display)",
                 fontWeight: 900,
                 fontSize: "clamp(2.8rem, 5.5vw, 4.5rem)",
                 color: "white",
-                letterSpacing: "-0.03em",
+                letterSpacing: "-0.02em",
               }}
             >
-              Wanna get Matcha?
+              Wanna get
+              <br />
+              Matcha?
             </h1>
             <p
               className="mb-8 text-base leading-relaxed max-w-xs"
               style={{ color: "rgba(255,255,255,0.75)" }}
             >
-              A pop-up matcha stand bringing quality ceremonial grade matcha to
+              A pop-up matcha stand bringing quality ceremonial grade matcha, and other delicious drinks to
               you!
             </p>
             <div className="flex gap-3 flex-wrap">
@@ -642,13 +644,13 @@ export default function App() {
               letterSpacing: "-0.03em",
             }}
           >
-            Toronto & Durham
+            Find our next pop-up on Instagram
           </h2>
           <p
             className="mb-8 text-sm"
             style={{ color: "rgba(255,255,255,0.45)" }}
           >
-            Find our next pop-up on Instagram
+            We hope to see you soon!
           </p>
           <div className="flex gap-3 justify-center">
             <a
