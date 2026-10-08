@@ -17,43 +17,43 @@ const MENU_TABS = [
         name: "Strawberry Matcha",
         desc: "Ceremonial grade matcha with strawberry flavour. Great for kids, anyone who is new to matcha, or loves strawberry!",
         img: "https://images.unsplash.com/photo-1751033390078-b605c8727fa4?w=700&h=700&fit=crop&auto=format",
-        tag: "popular",
+        tag: "bestseller",
       },
       {
         name: "Ube Matcha",
         desc: "The classic matcha with a Filipino Twist! Our classic matcha drizzled with our homemade ube syrup.",
         img: "https://images.unsplash.com/photo-1745725247846-12a3e3109bbf?w=700&h=700&fit=crop&auto=format",
-        tag: "popular",
+        tag: "bestseller",
       },
       {
         name: "Mango Matcha",
         desc: "The classic matcha with a sweet and tangy mango syrup.",
         img: "https://images.unsplash.com/photo-1745725247846-12a3e3109bbf?w=700&h=700&fit=crop&auto=format",
-        tag: "popular",
+        tag: "",
       },
       {
         name: "Vanilla Matcha",
         desc: "The classic matcha with optional vanilla cold foam.",
         img: "https://images.unsplash.com/photo-1745725247846-12a3e3109bbf?w=700&h=700&fit=crop&auto=format",
-        tag: "contains dairy",
+        tag: "",
       },
       {
         name: "Banana Cream Matcha",
         desc: "The classic matcha with a banana cream top and skors bits .",
         img: "https://images.unsplash.com/photo-1745725247846-12a3e3109bbf?w=700&h=700&fit=crop&auto=format",
-        tag: "contains dairy",
+        tag: "",
       },
       {
         name: "Cookies & Cream Matcha",
         desc: "The classic matcha with cookies & cream, cream top.",
         img: "https://images.unsplash.com/photo-1745725247846-12a3e3109bbf?w=700&h=700&fit=crop&auto=format",
-        tag: "contains dairy",
+        tag: "",
       },
       {
         name: "Cookie Butter Matcha",
         desc: "The classic matcha with a cookie butter cream top.",
         img: "https://images.unsplash.com/photo-1745725247846-12a3e3109bbf?w=700&h=700&fit=crop&auto=format",
-        tag: "contains dairy",
+        tag: "",
       },
     ],
   },
@@ -65,13 +65,13 @@ const MENU_TABS = [
         name: "Iced Coffee",
         desc: "Made with Vietnamese coffee and condensed milk.",
         img: "https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?w=700&h=700&fit=crop&auto=format",
-        tag: "contains dairy", 
+        tag: "bestseller", 
       },
       {
         name: "Banana Cream Coffee",
         desc: "Iced coffee with a banana cream top and skors bits.",
         img: "https://images.unsplash.com/photo-1777915836959-5182cb4fabba?w=700&h=700&fit=crop&auto=format",
-        tag: "contains dairy",
+        tag: "",
       },
       {
         name: "Cookies & Cream Coffee",
@@ -83,7 +83,7 @@ const MENU_TABS = [
         name: "Cookie Butter Coffee",
         desc: "Iced coffee with a cookie butter cream top.",
         img: "https://images.unsplash.com/photo-1723960676396-c8d17f502f21?w=700&h=700&fit=crop&auto=format",
-        tag: "contains dairy",
+        tag: "",
       },
     ],
   },
@@ -203,12 +203,12 @@ export default function App() {
             <div
               className="inline-block mb-6 px-4 py-1 text-xs font-medium tracking-wide"
               style={{
-                backgroundColor: "var(--color-matcha-light)",
+                backgroundColor: "var(--color-pink)",
                 color: "white",
                 borderRadius: "100px",
               }}
             >
-              Pop-up matcha booth
+              Pop-up Matcha Booth
             </div>
             <h1
               className="leading-[0.92] mb-4 whitespace-nowrap"
@@ -414,7 +414,7 @@ export default function App() {
 
         <p className="text-sm mt-8" style={{ color: "var(--color-mid)" }}>
           Follow us on Instagram to find our next event, or book us for your
-          event below.
+          event below through email.
         </p>
       </section>
 
@@ -434,7 +434,7 @@ export default function App() {
           <div>
             <p
               className="text-xs font-semibold tracking-widest uppercase mb-5"
-              style={{ color: "var(--color-matcha)" }}
+              style={{ color: "var(--color-pink)" }}
             >
               Who we are
             </p>
@@ -466,7 +466,7 @@ export default function App() {
               className="text-sm leading-relaxed"
               style={{ color: "var(--color-mid)" }}
             >
-              We've poured more than 3,000 cups across Durham and Toronto. Every
+              We've poured more than 5,000 cups across Durham and Toronto. Every
               one is still hand-whisked with ceremonial grade matcha.
             </p>
           </div>
@@ -487,7 +487,7 @@ export default function App() {
             <div
               className="absolute -bottom-4 -left-4 px-5 py-4"
               style={{
-                backgroundColor: "var(--color-matcha)",
+                backgroundColor: "var(--color-pink)",
                 borderRadius: "14px",
               }}
             >
@@ -500,7 +500,7 @@ export default function App() {
                   lineHeight: 1,
                 }}
               >
-                3k+
+                5k+
               </p>
               <p
                 className="text-xs mt-0.5"
@@ -517,7 +517,7 @@ export default function App() {
       <section id="catering" className="max-w-5xl mx-auto px-6 py-20">
         <p
           className="text-xs font-semibold tracking-widest uppercase mb-5"
-          style={{ color: "var(--color-matcha)" }}
+          style={{ color: "var(--color-pink)" }}
         >
           Bring us with you
         </p>
@@ -689,25 +689,18 @@ export default function App() {
           paddingTop: "2rem",
         }}
       >
-        <span
-          style={{
-            fontFamily: "var(--font-display)",
-            fontWeight: 700,
-            fontSize: "0.9rem",
-            color: "var(--color-matcha)",
-            letterSpacing: "-0.02em",
-          }}
-        >
-          matcha studios
-        </span>
+        <img
+          src={logo}
+          alt="Matcha Studios"
+          className="h-14 w-auto object-contain"
+        />
         <p className="text-xs" style={{ color: "var(--color-mid)" }}>
-          © 2026 ·Durham On
+          © 2026 ·Toronto On
         </p>
         <div className="flex gap-6">
           {[
             { label: "Instagram", href: "https://www.instagram.com/matcha.studiosx/?hl=en" },
-            { label: "TikTok", href: "#" },
-            { label: "Email", href: "#" },
+            { label: "matcha.studios@outlook.com", href: "mailto:matcha.studios@outlook.com" },
           ].map((link) => (
             <a
               key={link.label}
