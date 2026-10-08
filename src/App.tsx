@@ -5,7 +5,7 @@ import logo from "./imports/logo.png";
 const MENU_TABS = [
   {
     id: "matchas",
-    label: "Matchas",
+    label: "MATCHA",
     items: [
       {
         name: "Original Matcha",
@@ -59,7 +59,7 @@ const MENU_TABS = [
   },
   {
     id: "coffees",
-    label: "Coffees",
+    label: "COFFEE",
     items: [
       {
         name: "Iced Coffee",
@@ -89,7 +89,7 @@ const MENU_TABS = [
   },
   {
     id: "teas",
-    label: "More Teas",
+    label: "MORE TEAS",
     items: [
       {
         name: "Earl Grey Latte",
@@ -155,24 +155,24 @@ export default function App() {
       {/* Nav */}
       <nav
         style={{
-          backgroundColor: "var(--color-matcha)",
+          backgroundColor: "var(--color-dark)",
           position: "sticky",
           top: 0,
-          zIndex: 30,
+          zIndex: 15,
         }}
       >
-          <div className="flex items-center justify-between px-4 py-3 max-w-5xl mx-auto">
+          <div className="flex items-center justify-between px-0 py-3 max-w-7xl mx-auto">
               <img
                 src={logo}
                 alt="Matcha Studios"
-                className="h-14 w-auto object-contain"
+                className="h-12 w-auto object-contain"
               />
-          <div className="hidden sm:flex gap-8 items-center">
+          <div className="hidden sm:flex gap-15 items-center">
             {[
-              { label: "Menu", href: "#menu" },
-              { label: "About", href: "#about" },
-              { label: "Catering", href: "#catering" },
-              { label: "Contact us", href: "#find-us" },
+              { label: "MENU", href: "#menu" },
+              { label: "ABOUT", href: "#about" },
+              { label: "CATERING", href: "#catering" },
+              { label: "CONTACT & SOCIALS", href: "#find-us" },
             ].map((link) => (
               <a
                 key={link.label}
@@ -279,7 +279,7 @@ export default function App() {
             >
               <img
                 src="https://images.unsplash.com/photo-1749280447307-31a68eb38673?w=700&h=900&fit=crop&auto=format"
-                alt="Iced matcha latte at a café"
+                alt="Iced matcha latte"
                 className="w-full h-full object-cover"
                 style={{ mixBlendMode: "multiply" }}
               />
@@ -297,7 +297,7 @@ export default function App() {
         }}
       >
         {[
-          { icon: "📍", label: "Based in Durham and Toronto" },
+          { icon: "📍", label: "Based in Toronto and Durham" },
           { icon: "🍃", label: "Each Drink made Fresh to order" },
           { icon: "🗾", label: "Ceremonial grade, imported from Japan" },
           { icon: "🍁", label: "Canadian Owned Business" },
@@ -316,25 +316,27 @@ export default function App() {
 
       {/* Menu */}
       <section id="menu" className="max-w-7xl mx-auto px-7 py-20">
-        <div className="flex items-center justify-between mb-10">
+        <div className="flex items-center justify-between mb-7">
           <h2
             style={{
               fontFamily: "var(--font-display)",
               fontWeight: 700,
-              fontSize: "1.6rem",
+              fontSize: "1.7rem",
               color: "var(--color-dark)",
-              letterSpacing: "-0.03em",
+              letterSpacing: "-0.003em",
             }}
           >
-            The menu
+            The Menu
           </h2>
+
           <div
             className="flex gap-1 p-1"
             style={{
               backgroundColor: "var(--color-matcha-pale)",
-              borderRadius: "100px",
+              borderRadius: "150px",
             }}
           >
+            
             {MENU_TABS.map((m) => (
               <button
                 key={m.id}
@@ -353,6 +355,24 @@ export default function App() {
           </div>
         </div>
 
+          <p className="text-sm" 
+            style={{ 
+              color: "var(--color-mid)",
+              alignItems: "left",
+              paddingBottom: "3rem",
+              }}>
+            View our selection of hand-crafted drinks below. Each drink is has gone through intense testing
+            to ensure the perfect balance of flavour.
+            We are always experimenting with new flavours, so check back often for new drinks!
+            Follow us on <a href="https://www.instagram.com/matcha.studiosx/?hl=en"
+             target="_blank" rel="noopener noreferrer"
+             style = {{ color: "var(--color-pink)" }}>
+             Instagram </a>
+             to find our next event, or book us on our contact
+             page to below to book us for your next
+            event!
+          </p>
+          
         <div className="grid grid-cols-4 gap-4">
           {activeItems.map((item) => (
             <div
@@ -383,7 +403,7 @@ export default function App() {
                       backgroundColor:
                         item.tag === "new"
                           ? "var(--color-dark)"
-                          : "var(--color-matcha)",
+                          : "var(--color-pink)",
                       color: "white",
                       borderRadius: "100px",
                     }}
@@ -411,11 +431,6 @@ export default function App() {
             </div>
           ))}
         </div>
-
-        <p className="text-sm mt-8" style={{ color: "var(--color-mid)" }}>
-          Follow us on Instagram to find our next event, or book us for your
-          event below through email.
-        </p>
       </section>
 
       {/* About */}
