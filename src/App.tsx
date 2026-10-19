@@ -1,6 +1,6 @@
 import { useState } from "react"
-import logo from "./imports/logo.png";
-
+import logo from "./imports/logo.png"
+import covershot from "./imports/Covershot.png"
 
 const MENU_TABS = [
   {
@@ -65,7 +65,7 @@ const MENU_TABS = [
         name: "Iced Coffee",
         desc: "Made with Vietnamese coffee and condensed milk.",
         img: "https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?w=700&h=700&fit=crop&auto=format",
-        tag: "bestseller", 
+        tag: "bestseller",
       },
       {
         name: "Banana Cream Coffee",
@@ -139,8 +139,18 @@ const CATERING_OPTIONS = [
   },
 ]
 
+const NAV_LINKS = [
+  { label: "MENU", href: "#menu" },
+  { label: "ABOUT", href: "#about" },
+  { label: "CATERING", href: "#catering" },
+  { label: "CONTACT & SOCIALS", href: "#find-us" },
+]
+
+const INSTAGRAM_URL = "https://www.instagram.com/matcha.studiosx/?hl=en"
+
 export default function App() {
   const [tab, setTab] = useState("matchas")
+  const [menuOpen, setMenuOpen] = useState(false)
 
   const activeItems = MENU_TABS.find((m) => m.id === tab)?.items ?? []
 
@@ -158,22 +168,19 @@ export default function App() {
           backgroundColor: "var(--color-dark)",
           position: "sticky",
           top: 0,
-          zIndex: 15,
+          zIndex: 10,
         }}
       >
-          <div className="flex items-center justify-between px-0 py-3 max-w-7xl mx-auto">
-              <img
-                src={logo}
-                alt="Matcha Studios"
-                className="h-12 w-auto object-contain"
-              />
-          <div className="hidden sm:flex gap-15 items-center">
-            {[
-              { label: "MENU", href: "#menu" },
-              { label: "ABOUT", href: "#about" },
-              { label: "CATERING", href: "#catering" },
-              { label: "CONTACT & SOCIALS", href: "#find-us" },
-            ].map((link) => (
+        <div className="flex items-center justify-between px-6 py-3 max-w-7xl mx-auto">
+          <img
+            src={logo}
+            alt="Matcha Studios"
+            className="h-10 sm:h-11 w-auto object-contain"
+          />
+
+          {/* Desktop + tablet links */}
+          <div className="hidden md:flex gap-8 lg:gap-14 items-center">
+            {NAV_LINKS.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
@@ -184,24 +191,64 @@ export default function App() {
               </a>
             ))}
           </div>
+
+          {/* Phone hamburger */}
+          <button
+            type="button"
+            className="md:hidden p-2 -mr-2"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen((o) => !o)}
+            style={{ color: "white" }}
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              aria-hidden="true"
+            >
+              {menuOpen ? (
+                <path d="M6 6l12 12M18 6L6 18" />
+              ) : (
+                <path d="M4 7h16M4 12h16M4 17h16" />
+              )}
+            </svg>
+          </button>
         </div>
+
+        {/* Phone dropdown */}
+        {menuOpen && (
+          <div
+            className="md:hidden px-6 pb-5 pt-2 flex flex-col gap-4"
+            style={{ borderTop: "1px solid rgba(255,255,255,0.1)" }}
+          >
+            {NAV_LINKS.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                onClick={() => setMenuOpen(false)}
+                className="text-sm py-1"
+                style={{ color: "rgba(255,255,255,0.85)" }}
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+        )}
       </nav>
 
       {/* Hero */}
       <section
         style={{ backgroundColor: "var(--color-matcha)", overflow: "hidden" }}
       >
-        <div
-          className="max-w-5xl mx-auto px-6 pt-16 pb-0 grid"
-          style={{
-            gridTemplateColumns: "1fr 1fr",
-            alignItems: "end",
-            gap: "2rem",
-          }}
-        >
-          <div className="pb-16">
+        <div className="max-w-7xl mx-auto px-10 pt-19 lg:pt-14 pb-0 grid grid-cols-1 lg:grid-cols-2 items-end gap-8">
+          <div className="pb-4 lg:pb-16">
             <div
-              className="inline-block mb-6 px-4 py-1 text-xs font-medium tracking-wide"
+              className="inline-block mb-7 px-4 py-1 text-xs font-medium tracking-wide"
               style={{
                 backgroundColor: "var(--color-pink)",
                 color: "white",
@@ -211,11 +258,10 @@ export default function App() {
               Pop-up Matcha Booth
             </div>
             <h1
-              className="leading-[0.92] mb-4 whitespace-nowrap"
+              className="leading-[0.92] mb-5 text-4xl sm:text-6xl lg:text-7xl"
               style={{
                 fontFamily: "var(--font-display)",
                 fontWeight: 900,
-                fontSize: "clamp(2.8rem, 5.5vw, 4.5rem)",
                 color: "white",
                 letterSpacing: "-0.02em",
               }}
@@ -225,11 +271,11 @@ export default function App() {
               Matcha?
             </h1>
             <p
-              className="mb-8 text-base leading-relaxed max-w-xs"
+              className="mb-9 text-base leading-relaxed max-w-xs sm:max-w-sm"
               style={{ color: "rgba(255,255,255,0.75)" }}
             >
-              A pop-up matcha stand bringing quality ceremonial grade matcha, and other delicious drinks to
-              you!
+              A pop-up matcha stand bringing quality ceremonial grade matcha,
+              and other delicious drinks to you!
             </p>
             <div className="flex gap-3 flex-wrap">
               <button
@@ -266,19 +312,17 @@ export default function App() {
               </button>
             </div>
           </div>
-          <div
-            className="relative flex justify-center items-end"
-            style={{ height: "400px" }}
-          >
+
+          <div className="relative flex justify-center items-end h-[300px] sm:h-[500px] w-full max-w-md mx-auto lg:max-w-none">
             <div
-              className="absolute inset-x-4 bottom-0 top-0 overflow-hidden"
+              className="absolute inset-x-9 bottom-0 top-0 overflow-hidden"
               style={{
                 borderRadius: "999px 999px 0 0",
                 backgroundColor: "var(--color-matcha-pale)",
               }}
             >
               <img
-                src="https://images.unsplash.com/photo-1749280447307-31a68eb38673?w=700&h=900&fit=crop&auto=format"
+                src={covershot}
                 alt="Iced matcha latte"
                 className="w-full h-full object-cover"
                 style={{ mixBlendMode: "multiply" }}
@@ -290,11 +334,8 @@ export default function App() {
 
       {/* Info strip */}
       <div
-        className="flex items-stretch divide-x"
-        style={{
-          backgroundColor: "var(--color-dark)",
-          borderColor: "rgba(255,255,255,0.08)",
-        }}
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
+        style={{ backgroundColor: "rgba(255,255,255,0.08)" }}
       >
         {[
           { icon: "📍", label: "Based in Toronto and Durham" },
@@ -304,7 +345,8 @@ export default function App() {
         ].map((s) => (
           <div
             key={s.label}
-            className="flex items-center justify-center gap-3 px-8 py-4 flex-1"
+            className="flex items-center justify-center gap-3 px-6 py-4"
+            style={{ backgroundColor: "var(--color-dark)" }}
           >
             <span>{s.icon}</span>
             <p className="text-xs" style={{ color: "rgba(255,255,255,0.6)" }}>
@@ -315,13 +357,16 @@ export default function App() {
       </div>
 
       {/* Menu */}
-      <section id="menu" className="max-w-7xl mx-auto px-7 py-20">
-        <div className="flex items-center justify-between mb-7">
+      <section
+        id="menu"
+        className="max-w-7xl mx-auto px-6 py-12 md:py-20 scroll-mt-16"
+      >
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between mb-7">
           <h2
+            className="text-2xl md:text-[1.7rem]"
             style={{
               fontFamily: "var(--font-display)",
               fontWeight: 700,
-              fontSize: "1.7rem",
               color: "var(--color-dark)",
               letterSpacing: "-0.003em",
             }}
@@ -330,18 +375,17 @@ export default function App() {
           </h2>
 
           <div
-            className="flex gap-1 p-1"
+            className="flex gap-1 p-1 self-start sm:self-auto"
             style={{
               backgroundColor: "var(--color-matcha-pale)",
               borderRadius: "150px",
             }}
           >
-            
             {MENU_TABS.map((m) => (
               <button
                 key={m.id}
                 onClick={() => setTab(m.id)}
-                className="px-5 py-1.5 text-sm font-medium transition-all"
+                className="px-4 sm:px-5 py-1.5 text-xs sm:text-sm font-medium transition-all whitespace-nowrap"
                 style={{
                   borderRadius: "100px",
                   backgroundColor:
@@ -355,25 +399,27 @@ export default function App() {
           </div>
         </div>
 
-          <p className="text-sm" 
-            style={{ 
-              color: "var(--color-mid)",
-              alignItems: "left",
-              paddingBottom: "3rem",
-              }}>
-            View our selection of hand-crafted drinks below. Each drink is has gone through intense testing
-            to ensure the perfect balance of flavour.
-            We are always experimenting with new flavours, so check back often for new drinks!
-            Follow us on <a href="https://www.instagram.com/matcha.studiosx/?hl=en"
-             target="_blank" rel="noopener noreferrer"
-             style = {{ color: "var(--color-pink)" }}>
-             Instagram </a>
-             to find our next event, or book us on our contact
-             page to below to book us for your next
-            event!
-          </p>
-          
-        <div className="grid grid-cols-4 gap-4">
+        <p
+          className="text-sm pb-8 md:pb-12 max-w-3xl"
+          style={{ color: "var(--color-mid)" }}
+        >
+          View our selection of hand-crafted drinks below. Each drink is has
+          gone through intense testing to ensure the perfect balance of
+          flavour. We are always experimenting with new flavours, so check back
+          often for new drinks! Follow us on{" "}
+          <a
+            href={INSTAGRAM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "var(--color-pink)" }}
+          >
+            Instagram
+          </a>{" "}
+          to find our next event, or book us on our contact page to below to
+          book us for your next event!
+        </p>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {activeItems.map((item) => (
             <div
               key={item.name}
@@ -385,11 +431,8 @@ export default function App() {
               }}
             >
               <div
-                className="relative overflow-hidden"
-                style={{
-                  height: "200px",
-                  backgroundColor: "var(--color-matcha-bg)",
-                }}
+                className="relative overflow-hidden h-[220px] sm:h-[200px]"
+                style={{ backgroundColor: "var(--color-matcha-bg)" }}
               >
                 <img
                   src={item.img}
@@ -436,16 +479,14 @@ export default function App() {
       {/* About */}
       <section
         id="about"
+        className="scroll-mt-16"
         style={{
           backgroundColor: "var(--color-matcha-bg)",
           borderTop: "1.5px solid var(--color-matcha-pale)",
           borderBottom: "1.5px solid var(--color-matcha-pale)",
         }}
       >
-        <div
-          className="max-w-5xl mx-auto px-6 py-20 grid gap-16"
-          style={{ gridTemplateColumns: "1fr 1fr", alignItems: "center" }}
-        >
+        <div className="max-w-5xl mx-auto px-6 py-12 md:py-20 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
           <div>
             <p
               className="text-xs font-semibold tracking-widest uppercase mb-5"
@@ -454,11 +495,10 @@ export default function App() {
               Who we are
             </p>
             <h2
-              className="mb-5"
+              className="mb-5 text-[1.6rem] md:text-[1.9rem]"
               style={{
                 fontFamily: "var(--font-display)",
                 fontWeight: 700,
-                fontSize: "1.9rem",
                 color: "var(--color-dark)",
                 letterSpacing: "-0.03em",
                 lineHeight: 1.1,
@@ -481,11 +521,11 @@ export default function App() {
               className="text-sm leading-relaxed"
               style={{ color: "var(--color-mid)" }}
             >
-              We've poured more than 5,000 cups across Durham and Toronto. Every
-              one is still hand-whisked with ceremonial grade matcha.
+              We've poured more than 5,000 cups across Durham and Toronto.
+              Every one is still hand-whisked with ceremonial grade matcha.
             </p>
           </div>
-          <div className="relative" style={{ height: "380px" }}>
+          <div className="relative h-[300px] sm:h-[380px] mb-4 md:mb-0">
             <div
               className="absolute inset-0 overflow-hidden"
               style={{
@@ -500,7 +540,7 @@ export default function App() {
               />
             </div>
             <div
-              className="absolute -bottom-4 -left-4 px-5 py-4"
+              className="absolute -bottom-4 left-0 sm:-left-4 px-5 py-4"
               style={{
                 backgroundColor: "var(--color-pink)",
                 borderRadius: "14px",
@@ -529,7 +569,10 @@ export default function App() {
       </section>
 
       {/* Pop-ups & Catering */}
-      <section id="catering" className="max-w-5xl mx-auto px-6 py-20">
+      <section
+        id="catering"
+        className="max-w-5xl mx-auto px-6 py-12 md:py-20 scroll-mt-16"
+      >
         <p
           className="text-xs font-semibold tracking-widest uppercase mb-5"
           style={{ color: "var(--color-pink)" }}
@@ -537,11 +580,10 @@ export default function App() {
           Bring us with you
         </p>
         <h2
-          className="mb-4"
+          className="mb-4 text-[1.6rem] md:text-[1.9rem]"
           style={{
             fontFamily: "var(--font-display)",
             fontWeight: 700,
-            fontSize: "1.9rem",
             color: "var(--color-dark)",
             letterSpacing: "-0.03em",
             lineHeight: 1.1,
@@ -554,15 +596,15 @@ export default function App() {
           style={{ color: "var(--color-mid)" }}
         >
           We don't do online ordering, but we do come to you. Book us for a
-          market pop-up, a wedding, celebration, or any event that could use a sweet
-          treat.
+          market pop-up, a wedding, celebration, or any event that could use a
+          sweet treat.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-10">
           {CATERING_OPTIONS.map((o) => (
             <div
               key={o.title}
-              className="p-6"
+              className="p-5 sm:p-6"
               style={{
                 backgroundColor: "white",
                 borderRadius: "16px",
@@ -638,9 +680,12 @@ export default function App() {
       </section>
 
       {/* CTA */}
-      <section id="find-us" className="max-w-5xl mx-auto px-6 py-16">
+      <section
+        id="find-us"
+        className="max-w-5xl mx-auto px-6 py-12 md:py-16 scroll-mt-16"
+      >
         <div
-          className="px-12 py-14 text-center"
+          className="px-6 py-10 sm:px-12 sm:py-14 text-center"
           style={{ backgroundColor: "var(--color-dark)", borderRadius: "20px" }}
         >
           <p
@@ -650,13 +695,13 @@ export default function App() {
             Come hang
           </p>
           <h2
-            className="mb-2"
+            className="mb-2 text-2xl sm:text-[2rem]"
             style={{
               fontFamily: "var(--font-display)",
               fontWeight: 700,
-              fontSize: "2rem",
               color: "white",
               letterSpacing: "-0.03em",
+              lineHeight: 1.15,
             }}
           >
             Find our next pop-up on Instagram
@@ -667,9 +712,9 @@ export default function App() {
           >
             We hope to see you soon!
           </p>
-          <div className="flex gap-3 justify-center">
+          <div className="flex flex-wrap gap-3 justify-center">
             <a
-              href={"https://www.instagram.com/matcha.studiosx/?hl=en"}
+              href={INSTAGRAM_URL}
               target="_blank"
               rel="noreferrer"
               className="px-7 py-3 text-sm font-semibold transition-all hover:opacity-90 active:scale-95"
@@ -698,7 +743,7 @@ export default function App() {
 
       {/* Footer */}
       <footer
-        className="max-w-5xl mx-auto px-6 pb-10 flex items-center justify-between"
+        className="max-w-5xl mx-auto px-6 pb-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left"
         style={{
           borderTop: "1.5px solid var(--color-matcha-pale)",
           paddingTop: "2rem",
@@ -707,15 +752,18 @@ export default function App() {
         <img
           src={logo}
           alt="Matcha Studios"
-          className="h-14 w-auto object-contain"
+          className="h-12 sm:h-14 w-auto object-contain"
         />
         <p className="text-xs" style={{ color: "var(--color-mid)" }}>
           © 2026 ·Toronto On
         </p>
-        <div className="flex gap-6">
+        <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
           {[
-            { label: "Instagram", href: "https://www.instagram.com/matcha.studiosx/?hl=en" },
-            { label: "matcha.studios@outlook.com", href: "mailto:matcha.studios@outlook.com" },
+            { label: "Instagram", href: INSTAGRAM_URL },
+            {
+              label: "matcha.studios@outlook.com",
+              href: "mailto:matcha.studios@outlook.com",
+            },
           ].map((link) => (
             <a
               key={link.label}
