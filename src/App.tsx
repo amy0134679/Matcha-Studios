@@ -1,6 +1,12 @@
 import { useState } from "react"
 import logo from "./imports/logo.png"
 import covershot from "./imports/Covershot.png"
+import booth from "./imports/booth.jpg"
+import strawberry from "./imports/strawberryMatcha.jpg"
+import ube from "./imports/ubeMatcha.jpg"
+import mango from "./imports/mangoMatcha.jpg"
+import banana from "./imports/bananaMatcha.jpg"
+
 
 const MENU_TABS = [
   {
@@ -10,25 +16,25 @@ const MENU_TABS = [
       {
         name: "Original Matcha",
         desc: "Ceremonial grade from Japan whisked to order, with an oat milk base. Sweetened with maple syrup",
-        img: "https://images.unsplash.com/photo-1775891395012-b9edf8cecc1b?w=700&h=700&fit=crop&auto=format",
+        img: covershot,
         tag: null,
       },
       {
         name: "Strawberry Matcha",
         desc: "Ceremonial grade matcha with strawberry flavour. Great for kids, anyone who is new to matcha, or loves strawberry!",
-        img: "https://images.unsplash.com/photo-1751033390078-b605c8727fa4?w=700&h=700&fit=crop&auto=format",
+        img: strawberry,
         tag: "bestseller",
       },
       {
         name: "Ube Matcha",
         desc: "The classic matcha with a Filipino Twist! Our classic matcha drizzled with our homemade ube syrup.",
-        img: "https://images.unsplash.com/photo-1745725247846-12a3e3109bbf?w=700&h=700&fit=crop&auto=format",
+        img: ube,
         tag: "bestseller",
       },
       {
         name: "Mango Matcha",
         desc: "The classic matcha with a sweet and tangy mango syrup.",
-        img: "https://images.unsplash.com/photo-1745725247846-12a3e3109bbf?w=700&h=700&fit=crop&auto=format",
+        img: mango,
         tag: "",
       },
       {
@@ -40,7 +46,7 @@ const MENU_TABS = [
       {
         name: "Banana Cream Matcha",
         desc: "The classic matcha with a banana cream top and skors bits .",
-        img: "https://images.unsplash.com/photo-1745725247846-12a3e3109bbf?w=700&h=700&fit=crop&auto=format",
+        img: banana,
         tag: "",
       },
       {
@@ -359,7 +365,7 @@ export default function App() {
       {/* Menu */}
       <section
         id="menu"
-        className="max-w-7xl mx-auto px-6 py-12 md:py-20 scroll-mt-16"
+        className="max-w-7xl mx-auto px-6 py-14 md:py-20 scroll-mt-16"
       >
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between mb-7">
           <h2
@@ -431,7 +437,7 @@ export default function App() {
               }}
             >
               <div
-                className="relative overflow-hidden h-[220px] sm:h-[200px]"
+                className="relative overflow-hidden h-[220px] sm:h-[210px]"
                 style={{ backgroundColor: "var(--color-matcha-bg)" }}
               >
                 <img
@@ -534,8 +540,8 @@ export default function App() {
               }}
             >
               <img
-                src="https://images.unsplash.com/photo-1760992004210-44a502a2872d?w=800&h=900&fit=crop&auto=format"
-                alt="A pop-up booth welcoming visitors at an outdoor market"
+                src={booth}
+                alt="Our matcha booth at a pop-up event"
                 className="w-full h-full object-cover"
               />
             </div>
