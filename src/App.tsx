@@ -6,6 +6,9 @@ import strawberry from "./imports/strawberryMatcha.jpg"
 import ube from "./imports/ubeMatcha.jpg"
 import mango from "./imports/mangoMatcha.jpg"
 import banana from "./imports/bananaMatcha.jpg"
+import cookiescream from "./imports/cookiescream.jpg"
+import cookieButter from "./imports/cookiebutter.jpg"
+import vanilla from "./imports/vanillamatcha.jpg"
 
 
 const MENU_TABS = [
@@ -40,7 +43,7 @@ const MENU_TABS = [
       {
         name: "Vanilla Matcha",
         desc: "The classic matcha with optional vanilla cold foam.",
-        img: "https://images.unsplash.com/photo-1745725247846-12a3e3109bbf?w=700&h=700&fit=crop&auto=format",
+        img: vanilla,
         tag: "",
       },
       {
@@ -52,13 +55,13 @@ const MENU_TABS = [
       {
         name: "Cookies & Cream Matcha",
         desc: "The classic matcha with cookies & cream, cream top.",
-        img: "https://images.unsplash.com/photo-1745725247846-12a3e3109bbf?w=700&h=700&fit=crop&auto=format",
+        img: cookiescream,
         tag: "",
       },
       {
         name: "Cookie Butter Matcha",
         desc: "The classic matcha with a cookie butter cream top.",
-        img: "https://images.unsplash.com/photo-1745725247846-12a3e3109bbf?w=700&h=700&fit=crop&auto=format",
+        img: cookieButter,
         tag: "",
       },
     ],
@@ -70,7 +73,7 @@ const MENU_TABS = [
       {
         name: "Iced Coffee",
         desc: "Made with Vietnamese coffee and condensed milk.",
-        img: "https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?w=700&h=700&fit=crop&auto=format",
+        img: logo,
         tag: "bestseller",
       },
       {
