@@ -1,6 +1,6 @@
 import { useState } from "react"
-import logo from "./imports/logo.png"
-import covershot from "./imports/Covershot.png"
+import logo from "./imports/logo.jpg"
+import covershot from "./imports/Covershot.jpg"
 import booth from "./imports/booth.jpg"
 import strawberry from "./imports/strawberryMatcha.jpg"
 import ube from "./imports/ubeMatcha.jpg"
