@@ -1,6 +1,12 @@
-<div align="center">
 
-<img width="100%" alt="Matcha Studios Website header" src="https://capsule-render.vercel.app/api?type=waving&color=0:e4efd2,40:b9d4a0,100:7fa26b&height=220&section=header&text=Matcha%20Studios&fontSize=56&fontColor=1f3a24&fontAlignY=38&desc=A%20fresh%2C%20brand-first%20React%20website%20for%20a%20Toronto%20%26%20Durham%20matcha%20business&descSize=18&descColor=2f5233&descAlignY=60" />
+<div align="center">
+  <img
+    src="https://capsule-render.vercel.app/api?type=wave&color=7fa26b&height=200&section=header&text=Matcha%20Studios&fontSize=56&fontColor=1f3a24"
+    width="100%"
+    alt="Matcha Studios"
+  />
+
+
 
 <img alt="React" src="https://img.shields.io/badge/React-5C7A4A?style=for-the-badge&logo=react&logoColor=white" />
 <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-2F5233?style=for-the-badge&logo=typescript&logoColor=white" />
@@ -10,6 +16,12 @@
 
 <br /><br />
 Take a peek of what I have so far!
+
+
+
+https://github.com/user-attachments/assets/91a83959-ed20-4a6a-b4a5-4cfe9608c55b
+
+
 
 
 
@@ -47,7 +59,7 @@ The site is built around a few simple goals:
 - **Micro-interactions:** hover lift on menu cards, image zoom on hover and press feedback on buttons.
 
 ### 🧩 Features
-- **Tabbed menu:** switch between *The Classics* and *Rotational* drinks, built with React state, with tags like `popular`, `bestseller` and `new` on each card.
+- **Tabbed menu:** switch between catagories of drinks, built with React state, with tags like `popular`, `bestseller` and `new` on each card.
 - **Pop-ups & catering section:** explains what the business offers and gives clients a one-click enquiry link.
 - **Sticky navigation:** a fixed top bar with anchor links that smooth scroll to each section.
 - **Info strip:** location, opening hours and allergen info (nut-free ingredients) visible right under the hero.
