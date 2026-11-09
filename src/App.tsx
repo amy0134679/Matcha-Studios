@@ -341,29 +341,40 @@ export default function App() {
         </div>
       </section>
 
-      {/* Info strip */}
-      <div
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
-        style={{ backgroundColor: "rgba(255,255,255,0.08)" }}
+
+{/* Info strip */}
+<div
+  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
+  style={{ backgroundColor: "rgba(255,255,255,0.08)" }}
+>
+  {[
+    { icon: "bi-geo-alt", label: "Based in Toronto and Durham" },
+    { icon: "bi-leaf", label: "Each drink made fresh to order" },
+    { icon: "bi-airplane", label: "Ceremonial grade, imported from Japan" },
+    { icon: "bi-house", label: "Canadian owned business" },
+  ].map((s) => (
+    <div
+      key={s.label}
+      className="flex items-center justify-center gap-3 px-6 py-4"
+      style={{ backgroundColor: "var(--color-dark)" }}
+    >
+      <i
+        className={`bi ${s.icon}`}
+        style={{
+          color: "#c5d9ad",
+          fontSize: "18px",
+        }}
+      ></i>
+
+      <p
+        className="text-xs"
+        style={{ color: "rgba(255,255,255,0.6)" }}
       >
-        {[
-          { icon: "📍", label: "Based in Toronto and Durham" },
-          { icon: "🍃", label: "Each Drink made Fresh to order" },
-          { icon: "🗾", label: "Ceremonial grade, imported from Japan" },
-          { icon: "🍁", label: "Canadian Owned Business" },
-        ].map((s) => (
-          <div
-            key={s.label}
-            className="flex items-center justify-center gap-3 px-6 py-4"
-            style={{ backgroundColor: "var(--color-dark)" }}
-          >
-            <span>{s.icon}</span>
-            <p className="text-xs" style={{ color: "rgba(255,255,255,0.6)" }}>
-              {s.label}
-            </p>
-          </div>
-        ))}
-      </div>
+        {s.label}
+      </p>
+    </div>
+  ))}
+</div>
 
       {/* Menu */}
       <section
