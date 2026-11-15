@@ -9,6 +9,7 @@ import banana from "./imports/bananaMatcha.jpg"
 import cookiescream from "./imports/cookiescream.jpg"
 import cookieButter from "./imports/cookiebutter.jpg"
 import vanilla from "./imports/vanillamatcha.jpg"
+import heroShot from "./imports/Ube Heroshot.png"
 
 
 const MENU_TABS = [
@@ -149,10 +150,10 @@ const CATERING_OPTIONS = [
 ]
 
 const NAV_LINKS = [
-  { label: "MENU", href: "#menu" },
-  { label: "ABOUT", href: "#about" },
-  { label: "CATERING", href: "#catering" },
-  { label: "CONTACT & SOCIALS", href: "#find-us" },
+  { label: "Menu", href: "#menu" },
+  { label: "About", href: "#about" },
+  { label: "Catering", href: "#catering" },
+  { label: "Contact & Socials", href: "#find-us" },
 ]
 
 const INSTAGRAM_URL = "https://www.instagram.com/matcha.studiosx/?hl=en"
@@ -177,10 +178,10 @@ export default function App() {
           backgroundColor: "var(--color-dark)",
           position: "sticky",
           top: 0,
-          zIndex: 10,
+          zIndex: 1000,
         }}
       >
-        <div className="flex items-center justify-between px-6 py-3 max-w-7xl mx-auto">
+        <div className="flex items-center justify-between px-0 py-2 max-w-6xl mx-auto">
           <img
             src={logo}
             alt="Matcha Studios"
@@ -252,91 +253,134 @@ export default function App() {
 
       {/* Hero */}
       <section
-        style={{ backgroundColor: "var(--color-matcha)", overflow: "hidden" }}
+        className="relative overflow-hidden flex items-center min-h-[560px] lg:min-h-[600px]"
+        style={{ backgroundColor: "var(--color-dark)" }}
       >
-        <div className="max-w-7xl mx-auto px-10 pt-19 lg:pt-14 pb-0 grid grid-cols-1 lg:grid-cols-2 items-end gap-8">
-          <div className="pb-4 lg:pb-16">
-            <div
-              className="inline-block mb-7 px-4 py-1 text-xs font-medium tracking-wide"
+        {/* Sharp full-bleed photo */}
+        <img
+          src={heroShot}
+          alt="Ube matcha being poured over an iced matcha latte"
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ objectPosition: "72% center" }}
+        />
+
+        {/* Blurred copy, masked so only the text side is blurred.
+            Mobile: blur fades out top -> bottom. Desktop: left -> right. */}
+        <img
+          src={heroShot}
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover lg:hidden"
+          style={{
+            objectPosition: "72% center",
+            filter: "blur(14px)",
+            transform: "scale(1.06)",
+            WebkitMaskImage:
+              "linear-gradient(to bottom, #000 0%, #000 40%, transparent 68%)",
+            maskImage:
+              "linear-gradient(to bottom, #000 0%, #000 40%, transparent 68%)",
+          }}
+        />
+        <img
+          src={heroShot}
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover hidden lg:block"
+          style={{
+            objectPosition: "72% center",
+            filter: "blur(14px)",
+            transform: "scale(1.06)",
+            WebkitMaskImage:
+              "linear-gradient(to right, #000 0%, #000 38%, transparent 62%)",
+            maskImage:
+              "linear-gradient(to right, #000 0%, #000 38%, transparent 62%)",
+          }}
+        />
+
+        {/* Green tint for text contrast */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 pointer-events-none lg:hidden"
+          style={{
+            background:
+              "linear-gradient(to bottom, rgba(38,56,42,0.88) 0%, rgba(38,56,42,0.7) 45%, rgba(38,56,42,0) 75%)",
+          }}
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 pointer-events-none hidden lg:block"
+          style={{
+            background:
+              "linear-gradient(to right, rgba(38,56,42,0.92) 0%, rgba(38,56,42,0.78) 34%, rgba(38,56,42,0) 62%)",
+          }}
+        />
+
+        {/* Content */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-10 pt-12 pb-56 lg:py-24">
+          <div
+            className="inline-block mb-7 px-4 py-1 text-xs font-medium tracking-wide"
+            style={{
+              backgroundColor: "var(--color-pink)",
+              color: "white",
+              borderRadius: "100px",
+            }}
+          >
+            Pop-up Matcha Booth
+          </div>
+          <h1
+            className="leading-[0.92] mb-5 text-4xl sm:text-6xl lg:text-7xl"
+            style={{
+              fontFamily: "var(--font-display)",
+              fontWeight: 900,
+              color: "white",
+              letterSpacing: "-0.02em",
+              textShadow: "0 2px 18px rgba(0,0,0,0.25)",
+            }}
+          >
+            Wanna get
+            <br />
+            Matcha?
+          </h1>
+          <p
+            className="mb-9 text-base leading-relaxed max-w-xs sm:max-w-sm"
+            style={{ color: "rgba(255,255,255,0.88)" }}
+          >
+            A pop-up matcha stand bringing quality ceremonial grade matcha, and
+            other delicious drinks to you!
+          </p>
+          <div className="flex gap-3 flex-wrap">
+            <button
+              onClick={() =>
+                document
+                  .getElementById("menu")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+              className="px-6 py-3 text-sm font-semibold transition-all hover:scale-105 active:scale-95"
               style={{
-                backgroundColor: "var(--color-pink)",
-                color: "white",
+                backgroundColor: "white",
+                color: "var(--color-matcha)",
                 borderRadius: "100px",
               }}
             >
-              Pop-up Matcha Booth
-            </div>
-            <h1
-              className="leading-[0.92] mb-5 text-4xl sm:text-6xl lg:text-7xl"
+              See our menu ↓
+            </button>
+            <button
+              onClick={() =>
+                document
+                  .getElementById("find-us")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+              aria-label="Pop-up locations in Toronto and Durham"
+              title="Toronto and Durham pop-up locations"
+              className="px-6 py-3 text-sm font-medium transition-all hover:opacity-80"
               style={{
-                fontFamily: "var(--font-display)",
-                fontWeight: 900,
+                border: "1.5px solid rgba(255,255,255,0.5)",
                 color: "white",
-                letterSpacing: "-0.02em",
+                borderRadius: "150px",
               }}
             >
-              Wanna get
-              <br />
-              Matcha?
-            </h1>
-            <p
-              className="mb-9 text-base leading-relaxed max-w-xs sm:max-w-sm"
-              style={{ color: "rgba(255,255,255,0.75)" }}
-            >
-              A pop-up matcha stand bringing quality ceremonial grade matcha,
-              and other delicious drinks to you!
-            </p>
-            <div className="flex gap-3 flex-wrap">
-              <button
-                onClick={() =>
-                  document
-                    .getElementById("menu")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
-                className="px-6 py-3 text-sm font-semibold transition-all hover:scale-105 active:scale-95"
-                style={{
-                  backgroundColor: "white",
-                  color: "var(--color-matcha)",
-                  borderRadius: "100px",
-                }}
-              >
-                See our menu ↓
-              </button>
-              <button
-                onClick={() =>
-                  document
-                    .getElementById("find-us")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
-                aria-label="Pop-up locations in Toronto and Durham"
-                title="Toronto and Durham pop-up locations"
-                className="px-6 py-3 text-sm font-medium transition-all hover:opacity-80"
-                style={{
-                  border: "1.5px solid rgba(255,255,255,0.35)",
-                  color: "white",
-                  borderRadius: "150px",
-                }}
-              >
-                Find our next pop-up
-              </button>
-            </div>
-          </div>
-
-          <div className="relative flex justify-center items-end h-[300px] sm:h-[500px] w-full max-w-md mx-auto lg:max-w-none">
-            <div
-              className="absolute inset-x-9 bottom-0 top-0 overflow-hidden"
-              style={{
-                borderRadius: "999px 999px 0 0",
-                backgroundColor: "var(--color-matcha-pale)",
-              }}
-            >
-              <img
-                src={covershot}
-                alt="Iced matcha latte"
-                className="w-full h-full object-cover"
-                style={{ mixBlendMode: "multiply" }}
-              />
-            </div>
+              Find our next pop-up
+            </button>
           </div>
         </div>
       </section>
@@ -345,7 +389,7 @@ export default function App() {
 {/* Info strip */}
 <div
   className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
-  style={{ backgroundColor: "rgba(255,255,255,0.08)" }}
+  style={{ backgroundColor: "var(--color-darks)" }}
 >
   {[
     { icon: "bi-geo-alt", label: "Based in Toronto and Durham" },
