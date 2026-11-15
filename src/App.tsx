@@ -11,6 +11,7 @@ import cookieButter from "./imports/cookiebutter.jpg"
 import vanilla from "./imports/vanillamatcha.jpg"
 import heroShot from "./imports/Ube Heroshot.png"
 import CateringForm from "./CateringForm"
+import MenuSection from "./MenuSection"
 
 
 const MENU_TABS = [
@@ -421,125 +422,7 @@ export default function App() {
   ))}
 </div>
 
-      {/* Menu */}
-      <section
-        id="menu"
-        className="max-w-7xl mx-auto px-6 py-14 md:py-20 scroll-mt-16"
-      >
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between mb-7">
-          <h2
-            className="text-2xl md:text-[1.7rem]"
-            style={{
-              fontFamily: "var(--font-display)",
-              fontWeight: 700,
-              color: "var(--color-dark)",
-              letterSpacing: "-0.003em",
-            }}
-          >
-            The Menu
-          </h2>
-
-          <div
-            className="flex gap-1 p-1 self-start sm:self-auto"
-            style={{
-              backgroundColor: "var(--color-matcha-pale)",
-              borderRadius: "150px",
-            }}
-          >
-            {MENU_TABS.map((m) => (
-              <button
-                key={m.id}
-                onClick={() => setTab(m.id)}
-                className="px-4 sm:px-5 py-1.5 text-xs sm:text-sm font-medium transition-all whitespace-nowrap"
-                style={{
-                  borderRadius: "100px",
-                  backgroundColor:
-                    tab === m.id ? "var(--color-matcha)" : "transparent",
-                  color: tab === m.id ? "white" : "var(--color-mid)",
-                }}
-              >
-                {m.label}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <p
-          className="text-sm pb-8 md:pb-12 max-w-3xl"
-          style={{ color: "var(--color-mid)" }}
-        >
-          View our selection of hand-crafted drinks below. Each drink is has
-          gone through intense testing to ensure the perfect balance of
-          flavour. We are always experimenting with new flavours, so check back
-          often for new drinks! Follow us on{" "}
-          <a
-            href={INSTAGRAM_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: "var(--color-pink)" }}
-          >
-            Instagram
-          </a>{" "}
-          to find our next event, or book us on our contact page to below to
-          book us for your next event!
-        </p>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {activeItems.map((item) => (
-            <div
-              key={item.name}
-              className="group overflow-hidden transition-all duration-300 hover:-translate-y-1"
-              style={{
-                backgroundColor: "white",
-                borderRadius: "16px",
-                border: "2px solid var(--color-matcha-pale)",
-              }}
-            >
-              <div
-                className="relative overflow-hidden h-[220px] sm:h-[210px]"
-                style={{ backgroundColor: "var(--color-matcha-bg)" }}
-              >
-                <img
-                  src={item.img}
-                  alt={item.name}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                {item.tag && (
-                  <div
-                    className="absolute top-3 left-3 px-2.5 py-0.5 text-xs font-semibold"
-                    style={{
-                      backgroundColor:
-                        item.tag === "new"
-                          ? "var(--color-dark)"
-                          : "var(--color-pink)",
-                      color: "white",
-                      borderRadius: "100px",
-                    }}
-                  >
-                    {item.tag}
-                  </div>
-                )}
-              </div>
-              <div className="p-5">
-                <div className="mb-1.5">
-                  <h3
-                    className="font-semibold text-base leading-snug"
-                    style={{ color: "var(--color-dark)" }}
-                  >
-                    {item.name}
-                  </h3>
-                </div>
-                <p
-                  className="text-sm leading-snug"
-                  style={{ color: "var(--color-mid)" }}
-                >
-                  {item.desc}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+<MenuSection instagramUrl={INSTAGRAM_URL} />
 
       {/* About */}
       <section
