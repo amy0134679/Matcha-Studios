@@ -20,6 +20,8 @@ type Tab = {
   photo?: { src: string; alt: string; caption: string } // static spotlight (no carousel)
 }
 
+const MOBILE_PREVIEW = 4 // drinks shown on phones before "Show more"
+
 const TABS: Tab[] = [
   {
     id: "matchas",
@@ -87,6 +89,7 @@ export default function MenuSection(_props: { instagramUrl?: string }) {
   const [slide, setSlide] = useState(0)
   const touchStartX = useRef<number | null>(null)
   const [hovered, setHovered] = useState(false) // mouse over the card or focus inside it
+  const [expanded, setExpanded] = useState(false) // phones: show all drinks
   const [stopped, setStopped] = useState(false) // tapped/clicked, or paused with the button
 
   const tab = TABS.find((t) => t.id === tabId) ?? TABS[0]
@@ -104,7 +107,7 @@ export default function MenuSection(_props: { instagramUrl?: string }) {
   }, [slide, slides.length, hovered, stopped])
 
   return (
-    <section id="menu" className="max-w-7xl mx-auto px-10 py-14 md:py-20 scroll-mt-16">
+    <section id="menu" className="max-w-7xl mx-auto px-10 py-16 md:py-20 scroll-mt-16">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between mb-7">
         <h2
           className="text-2xl md:text-[1.7rem]"
@@ -124,6 +127,7 @@ export default function MenuSection(_props: { instagramUrl?: string }) {
                 setTabId(m.id)
                 setSlide(0)
                 setStopped(false)
+                setExpanded(false)
               }}
               className="px-4 sm:px-5 py-1.5 text-xs sm:text-sm font-medium transition-all whitespace-nowrap"
               style={{
@@ -138,7 +142,7 @@ export default function MenuSection(_props: { instagramUrl?: string }) {
         </div>
       </div>
 
-      <p className="text-sm pb-8 md:pb-12 max-w-5xl" style={{ color: "var(--color-mid)" }}>
+      <p className="text-sm pb-5 md:pb-6 max-w-5xl" style={{ color: "var(--color-mid)" }}>
         View our selection of hand-crafted drinks below. Each drink has gone through intense testing to ensure the
         perfect balance of flavour. <br/>We are always experimenting with new flavours, so check back often for new drinks!
       </p>
@@ -273,15 +277,18 @@ export default function MenuSection(_props: { instagramUrl?: string }) {
         )}
 
         {/* Tiles: 2 columns, as many rows as there are drinks */}
+        <div className="lg:col-span-2 flex flex-col">
         <div
-          className={`lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4 ${
+          className={`flex-1 grid grid-cols-1 sm:grid-cols-2 gap-4 ${
             slides.length > 0 ? "auto-rows-fr" : "content-start"
           }`}
         >
-          {tab.items.map((item) => (
+          {tab.items.map((item, idx) => (
             <div
               key={item.name}
-              className="p-5 transition-all duration-300 hover:-translate-y-1"
+              className={`p-5 transition-all duration-300 hover:-translate-y-1 ${
+                !expanded && idx >= MOBILE_PREVIEW ? "hidden sm:block" : ""
+              }`}
               style={{ backgroundColor: "white", borderRadius: "16px", border: "2px solid var(--color-matcha-pale)" }}
             >
               <div className="flex items-start justify-between gap-2 mb-1.5">
@@ -295,6 +302,23 @@ export default function MenuSection(_props: { instagramUrl?: string }) {
               </p>
             </div>
           ))}
+        </div>
+
+        {/* Phones only: collapse long lists */}
+        {tab.items.length > MOBILE_PREVIEW && (
+          <button
+            type="button"
+            aria-expanded={expanded}
+            className="sm:hidden mt-4 self-center px-6 py-3 text-sm font-semibold"
+            style={{ color: "var(--color-matcha)", border: "1.5px solid var(--color-matcha)", borderRadius: 100, backgroundColor: "white" }}
+            onClick={() => {
+              setExpanded((v) => !v)
+              if (expanded) document.getElementById("menu")?.scrollIntoView({ behavior: "smooth" })
+            }}
+          >
+            {expanded ? "Show fewer drinks" : `Show more drinks`}
+          </button>
+        )}
         </div>
       </div>
     </section>

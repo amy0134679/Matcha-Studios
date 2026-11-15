@@ -5,6 +5,7 @@ import heroShot from "./imports/UbeHeroshot.png"
 import CateringForm from "./CateringForm"
 import MenuSection from "./MenuSection"
 
+
 const CATERING_OPTIONS = [
   {
     title: "Basic",
@@ -49,7 +50,6 @@ const INSTAGRAM_URL = "https://www.instagram.com/matcha.studiosx/?hl=en"
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false)
 
-
   return (
     <div
       style={{
@@ -63,10 +63,13 @@ export default function App() {
         style={{
           backgroundColor: "var(--color-dark)",
           position: "sticky",
-          top: 0,
+          top: -70,
+          transition: "top 0.3s ease-in-out",
           zIndex: 1000,
         }}
+        
       >
+        
         <div className="flex items-center justify-between px-0 py-2 max-w-6xl mx-auto">
           <img
             src={logo}
@@ -189,7 +192,7 @@ export default function App() {
           className="absolute inset-0 pointer-events-none lg:hidden"
           style={{
             background:
-              "linear-gradient(to bottom, rgba(38,56,42,0.88) 0%, rgba(38,56,42,0.7) 45%, rgba(38,56,42,0) 75%)",
+              "linear-gradient(to bottom, rgba(38,56,42,0.88) 0%, rgba(38,56,42,0.7) 15%, rgba(38,56,42,0) 50%)",
           }}
         />
         <div
@@ -306,7 +309,7 @@ export default function App() {
   ))}
 </div>
 
-<MenuSection instagramUrl={INSTAGRAM_URL} />
+<MenuSection />
 
       {/* About */}
       <section
@@ -353,8 +356,15 @@ export default function App() {
               className="text-sm leading-relaxed"
               style={{ color: "var(--color-mid)" }}
             >
-              We've poured more than 5,000 cups across Durham and Toronto.
-              Every one is still hand-whisked with ceremonial grade matcha.
+              Follow our Instagram: 
+              <a href={INSTAGRAM_URL} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="underline 
+              hover:no-underline"
+              style={{ color: "var(--color-pink)" }}
+              >
+               @matchastudios</a> for updates on upcoming pop-up events, or book us for your next wedding, celebration, or event!
             </p>
           </div>
           <div className="relative h-[300px] sm:h-[380px] mb-4 md:mb-0">
