@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react"
 import strawberry from "./imports/strawberryMatcha.jpg"
 import ube from "./imports/ubeMatcha.jpg"
 import mango from "./imports/mangoMatcha.jpg"
-import cookiescream from "./imports/cookiebutter.jpg"
+import cookiescream from "./imports/cookiescream.jpg"
 
 type Drink = {
   name: string

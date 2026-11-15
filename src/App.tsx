@@ -1,123 +1,9 @@
 import { useState } from "react"
 import logo from "./imports/logo.jpg"
-import covershot from "./imports/Covershot.jpg"
 import booth from "./imports/booth.jpg"
-import strawberry from "./imports/strawberryMatcha.jpg"
-import ube from "./imports/ubeMatcha.jpg"
-import mango from "./imports/mangoMatcha.jpg"
-import banana from "./imports/bananaMatcha.jpg"
-import cookiescream from "./imports/cookiescream.jpg"
-import cookieButter from "./imports/cookiebutter.jpg"
-import vanilla from "./imports/vanillamatcha.jpg"
-import heroShot from "./imports/Ube Heroshot.png"
+import heroShot from "./imports/UbeHeroshot.png"
 import CateringForm from "./CateringForm"
 import MenuSection from "./MenuSection"
-
-
-const MENU_TABS = [
-  {
-    id: "matchas",
-    label: "MATCHA",
-    items: [
-      {
-        name: "Original Matcha",
-        desc: "Ceremonial grade from Japan whisked to order, with an oat milk base. Sweetened with maple syrup",
-        img: covershot,
-        tag: null,
-      },
-      {
-        name: "Strawberry Matcha",
-        desc: "Ceremonial grade matcha with strawberry flavour. Great for kids, anyone who is new to matcha, or loves strawberry!",
-        img: strawberry,
-        tag: "bestseller",
-      },
-      {
-        name: "Ube Matcha",
-        desc: "The classic matcha with a Filipino Twist! Our classic matcha drizzled with our homemade ube syrup.",
-        img: ube,
-        tag: "bestseller",
-      },
-      {
-        name: "Mango Matcha",
-        desc: "The classic matcha with a sweet and tangy mango syrup.",
-        img: mango,
-        tag: "",
-      },
-      {
-        name: "Vanilla Matcha",
-        desc: "The classic matcha with optional vanilla cold foam.",
-        img: vanilla,
-        tag: "",
-      },
-      {
-        name: "Banana Cream Matcha",
-        desc: "The classic matcha with a banana cream top and skors bits .",
-        img: banana,
-        tag: "",
-      },
-      {
-        name: "Cookies & Cream Matcha",
-        desc: "The classic matcha with cookies & cream, cream top.",
-        img: cookiescream,
-        tag: "",
-      },
-      {
-        name: "Cookie Butter Matcha",
-        desc: "The classic matcha with a cookie butter cream top.",
-        img: cookieButter,
-        tag: "",
-      },
-    ],
-  },
-  {
-    id: "coffees",
-    label: "COFFEE",
-    items: [
-      {
-        name: "Iced Coffee",
-        desc: "Made with Vietnamese coffee and condensed milk.",
-        img: logo,
-        tag: "bestseller",
-      },
-      {
-        name: "Banana Cream Coffee",
-        desc: "Iced coffee with a banana cream top and skors bits.",
-        img: "https://images.unsplash.com/photo-1777915836959-5182cb4fabba?w=700&h=700&fit=crop&auto=format",
-        tag: "",
-      },
-      {
-        name: "Cookies & Cream Coffee",
-        desc: "Iced coffee with cookies & cream, cream top.",
-        img: "https://images.unsplash.com/photo-1723960676396-c8d17f502f21?w=700&h=700&fit=crop&auto=format",
-        tag: "new",
-      },
-      {
-        name: "Cookie Butter Coffee",
-        desc: "Iced coffee with a cookie butter cream top.",
-        img: "https://images.unsplash.com/photo-1723960676396-c8d17f502f21?w=700&h=700&fit=crop&auto=format",
-        tag: "",
-      },
-    ],
-  },
-  {
-    id: "teas",
-    label: "MORE TEAS",
-    items: [
-      {
-        name: "Earl Grey Latte",
-        desc: "A classic earl grey tea with a creamy oat milk base.",
-        img: "https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?w=700&h=700&fit=crop&auto=format",
-        tag: "",
-      },
-      {
-        name: "Mango Hojicha",
-        desc: "Hojicha tea with a sweet and tangy mango syrup.",
-        img: "https://images.unsplash.com/photo-1777915836959-5182cb4fabba?w=700&h=700&fit=crop&auto=format",
-        tag: null,
-      },
-    ],
-  },
-]
 
 const CATERING_OPTIONS = [
   {
@@ -161,10 +47,8 @@ const NAV_LINKS = [
 const INSTAGRAM_URL = "https://www.instagram.com/matcha.studiosx/?hl=en"
 
 export default function App() {
-  const [tab, setTab] = useState("matchas")
   const [menuOpen, setMenuOpen] = useState(false)
 
-  const activeItems = MENU_TABS.find((m) => m.id === tab)?.items ?? []
 
   return (
     <div
