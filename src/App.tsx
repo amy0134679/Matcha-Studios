@@ -10,6 +10,7 @@ import cookiescream from "./imports/cookiescream.jpg"
 import cookieButter from "./imports/cookiebutter.jpg"
 import vanilla from "./imports/vanillamatcha.jpg"
 import heroShot from "./imports/Ube Heroshot.png"
+import CateringForm from "./CateringForm"
 
 
 const MENU_TABS = [
@@ -189,7 +190,7 @@ export default function App() {
           />
 
           {/* Desktop + tablet links */}
-          <div className="hidden md:flex gap-8 lg:gap-14 items-center">
+          <div className="hidden md:flex gap-5 lg:gap-20 items-center">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.label}
@@ -388,8 +389,8 @@ export default function App() {
 
 {/* Info strip */}
 <div
-  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
-  style={{ backgroundColor: "var(--color-darks)" }}
+  className="grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-4"
+  style={{ backgroundColor: "var(--color-dark)" }}
 >
   {[
     { icon: "bi-geo-alt", label: "Based in Toronto and Durham" },
@@ -729,18 +730,7 @@ export default function App() {
             </div>
           ))}
         </div>
-
-        <a
-          href="mailto:hello@matchastudios.com?subject=Pop-up%20%2F%20catering%20inquiry"
-          className="inline-block px-7 py-3 text-sm font-semibold transition-all hover:opacity-90 active:scale-95"
-          style={{
-            backgroundColor: "var(--color-matcha)",
-            color: "white",
-            borderRadius: "100px",
-          }}
-        >
-          Enquire about catering
-        </a>
+<CateringForm />
       </section>
 
       {/* CTA */}
