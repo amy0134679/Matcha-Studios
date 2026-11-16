@@ -4,6 +4,8 @@ import booth from "./imports/booth.jpg"
 import heroShot from "./imports/UbeHeroshot.png"
 import CateringForm from "./CateringForm"
 import MenuSection from "./MenuSection"
+import AchievementBadges from "./AchievementBadges"
+
 
 
 const CATERING_OPTIONS = [
@@ -58,13 +60,13 @@ export default function App() {
         minHeight: "100vh",
       }}
     >
+
       {/* Nav */}
       <nav
         style={{
           backgroundColor: "var(--color-dark)",
           position: "sticky",
-          top: -70,
-          transition: "top 0.3s ease-in-out",
+          top: 0,
           zIndex: 1000,
         }}
         
@@ -321,7 +323,7 @@ export default function App() {
           borderBottom: "1.5px solid var(--color-matcha-pale)",
         }}
       >
-        <div className="max-w-5xl mx-auto px-6 py-12 md:py-20 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+        <div className="max-w-6xl mx-auto px-6 py-12 md:py-20 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
           <div>
             <p
               className="text-xs font-semibold tracking-widest uppercase mb-5"
@@ -366,8 +368,9 @@ export default function App() {
               >
                @matchastudios</a> for updates on upcoming pop-up events, or book us for your next wedding, celebration, or event!
             </p>
+            <AchievementBadges />
           </div>
-          <div className="relative h-[300px] sm:h-[380px] mb-4 md:mb-0">
+          <div className="relative h-[350px] sm:h-[480px] mb-3 md:mb-0">
             <div
               className="absolute inset-0 overflow-hidden"
               style={{
@@ -381,31 +384,7 @@ export default function App() {
                 className="w-full h-full object-cover"
               />
             </div>
-            <div
-              className="absolute -bottom-4 left-0 sm:-left-4 px-5 py-4"
-              style={{
-                backgroundColor: "var(--color-pink)",
-                borderRadius: "14px",
-              }}
-            >
-              <p
-                style={{
-                  fontFamily: "var(--font-display)",
-                  fontWeight: 700,
-                  fontSize: "1.8rem",
-                  color: "white",
-                  lineHeight: 1,
-                }}
-              >
-                5k+
-              </p>
-              <p
-                className="text-xs mt-0.5"
-                style={{ color: "rgba(255,255,255,0.75)" }}
-              >
-                cups poured
-              </p>
-            </div>
+
           </div>
         </div>
       </section>
